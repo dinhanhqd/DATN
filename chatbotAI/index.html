@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ChatAI</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                font-size: 3em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>ChatAI</h1>
+
+        <script type="module">
+            import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed@1.3.14/dist/web.js'
+            Chatbot.init({
+                chatflowid: 'bb3df4fc-54fd-49d3-be8a-4ac1d2e9ea9f',
+                apiHost: 'http://localhost:3000'
+            })
+        </script>
+    </body>
+</html>

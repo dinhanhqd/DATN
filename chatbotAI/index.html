@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ChatAI</title>
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                font-family: Arial, sans-serif;
-            }
 
-            h1 {
-                font-size: 3em;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán Ung thư Da</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-    <body>
-        <h1>ChatAI</h1>
+<body>
+    <div class="container">
+        <h1>Dự đoán Ung thư Da</h1>
+        <p>Vui lòng chọn một phương pháp để kiểm tra và chẩn đoán</p>
 
-        <script type="module">
-            import Chatbot from 'https://cdn.jsdelivr.net/npm/flowise-embed@1.3.14/dist/web.js'
-            Chatbot.init({
-                chatflowid: 'bb3df4fc-54fd-49d3-be8a-4ac1d2e9ea9f',
-                apiHost: 'http://localhost:3000'
-            })
-        </script>
-    </body>
+        <div class="upload-container">
+            <button id="use-camera-btn">Dùng Camera</button>
+            <input type="file" id="upload-image" accept="image/*" style="display:none" />
+            <button id="choose-file-btn">Chọn Ảnh Từ Máy</button>
+        </div>
+
+        <!-- Camera container và ảnh sẽ bị ẩn ban đầu -->
+        <div id="media-container" style="display: none; display: flex;">
+            <!-- Phần bên trái: Camera hoặc Canvas -->
+            <div id="camera-container" style="display:none; margin-right: 20px;">
+                <h3>Chụp ảnh từ Camera:</h3>
+                <video id="camera" width="500px" height="auto" autoplay></video>
+
+                <button id="capture-photo-btn">Chụp ảnh</button>
+            </div>
+
+            <!-- Phần bên phải: Ảnh đã chụp từ camera -->
+            <div id="image-container" style="display:none;">
+                <h3>Ảnh đã tải lên hoặc chụp từ camera:</h3>
+                <img id="uploaded-image" src="" alt="Ảnh đã tải lên" style="max-width: 500px; height: auto;" />
+            </div>
+        </div>
+
+        <div id="result-container"></div>
+    </div>
+
+
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
+
+        // Khởi tạo chatbot
+        Chatbot.init({
+            chatflowid: "bb3df4fc-54fd-49d3-be8a-4ac1d2e9ea9f", // ID của chatbot
+            apiHost: "http://localhost:3000", // Địa chỉ máy chủ API
+        });
+
+        // Xử lý sự kiện lỗi
+        Chatbot.onError((error) => {
+            console.error('Có lỗi xảy ra:', error);
+        });
+    </script>
+
+
+    <script src="js/camera.js"></script>
+    <script src="js/fileUpload.js"></script>
+    <script src="js/prediction.js"></script>
+</body>
+
 </html>

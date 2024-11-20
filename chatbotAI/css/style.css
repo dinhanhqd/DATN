@@ -1,0 +1,80 @@
+/* Style cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 1100px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.upload-container {
+    margin: 20px 0;
+}
+
+input[type="file"] {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#capture-photo-btn {
+    width: 85%;
+    /* Đặt chiều rộng của nút chiếm 100% phần tử chứa */
+    padding: 20px 0;
+    /* Thêm padding trên và dưới để tạo khoảng cách cho nút */
+    font-size: 16px;
+    /* Chỉnh kích thước chữ nếu cần */
+    text-align: center;
+    /* Canh giữa văn bản trong nút */
+    background-color: #4CAF50;
+    /* Màu nền */
+    color: white;
+    /* Màu chữ */
+    border: none;
+    /* Xóa viền */
+    cursor: pointer;
+    /* Hiển thị con trỏ chuột khi hover */
+    border-radius: 5px;
+    /* Bo góc cho nút */
+}
+
+#capture-photo-btn:hover {
+    background-color: #45a049;
+    /* Màu nền thay đổi khi hover */
+}
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result-container {
+    margin-top: 20px;
+    text-align: left;
+}
